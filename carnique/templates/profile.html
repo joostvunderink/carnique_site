@@ -1,0 +1,50 @@
+{% extends "skeleton.html" %}
+
+{% block title %}
+{{ puser.username }}
+{% endblock %}
+
+{% block contents %}
+<p>{{ puser.username }}'s profile</p>
+
+{% if user.is_authenticated %}
+<dl class="profile">
+
+{% if puser.get_profile.realname %}
+<dt class="profile">Real name</dt>
+<dd class="profile">{{ puser.get_profile.realname }}</dd>
+{% endif %}
+
+{% if puser.get_profile.location %}
+<dt class="profile">Location</dt>
+<dd class="profile">{{ puser.get_profile.location }}</dd>
+{% endif %}
+
+{% if puser.get_profile.birthday %}
+<dt class="profile">Birthday</dt>
+<dd class="profile">{{ puser.get_profile.birthday }}</dd>
+{% endif %}
+
+{% if puser.get_profile.blog_url %}
+<dt class="profile">Blog URL</dt>
+<dd class="profile">{{ puser.get_profile.blog_url }}</dd>
+{% endif %}
+
+{% if puser.get_profile.twitter_username %}
+<dt class="profile">Twitter username</dt>
+<dd class="profile">{{ puser.get_profile.twitter_username }}</dd>
+{% endif %}
+
+</dl>
+{% endif %}
+
+<p class="profile">
+{% if profile_text %}
+{{ profile_text|safe }}
+{% else %}
+Geen profiel.
+{% endif %}
+</p>
+
+{% endblock %}
+

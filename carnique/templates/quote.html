@@ -1,0 +1,21 @@
+{% extends "skeleton.html" %}
+
+{% block contents %}
+
+<p><a href="/quotes/">view all quotes</a> - <a href="/quotes/random/">view random quote</a> - <a href="/quotes/add/">add quote</a></p>
+<h3>{{ quote.title }}</h3>
+<p><a href="/quotes/{{ quote.id }}/">[{{ quote.id }}]</a>
+Added by
+{% if q.added_by.is_active and q.added_by.get_profile.is_member %}
+<a href="/profile/{{ quote.added_by.username }}">{{ quote.added_by.username }}</a>
+{% else %}
+{{ quote.added_by.username }}
+{% endif %}
+- {{ quote.added_on }} -
+score {{ quote.score }} -
+<a href="/quotes/{{ quote.id }}/vote/up/">like</a> -
+<a href="/quotes/{{ quote.id }}/vote/down/">dislike</a>
+</p>
+<pre>{{ quote.text }}</pre>
+{% endblock %}
+

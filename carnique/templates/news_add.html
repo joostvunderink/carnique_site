@@ -1,0 +1,23 @@
+{% extends 'skeleton.html' %}
+
+{% block contents %}
+
+<h2>Add new news</h2>
+
+<form action="/news/add/" method="post">
+<table>
+<tr>
+    <td><label for="id_title">Title</label></td>
+
+    <td><input id="id_title" type="text" name="news_title" {% if news_title %}value="{{news_title}}"{% endif %} /></td>
+</tr>
+<tr>
+    <td><label for="id_news_text">Text</label></td>
+    <td><textarea id="id_news_text" name="news_text" id="id_news_text" cols="60" rows="6">{{ news_text }}</textarea></td>
+</tr>
+</table>
+
+<input type="submit" value="submit" />
+</form>
+
+{% endblock %}

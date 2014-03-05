@@ -1,0 +1,49 @@
+{% extends "skeleton.html" %}
+
+{% block contents %}
+
+{% if user.is_authenticated %}
+<p><a href="/quotes/add/">Add new quote</a> -
+<a href="/quotes/random/">Random quote</a> -
+<a href="/quotes/top/1/">Top quotes</a>
+</p>
+{% endif %}
+
+<p>
+{% ifequal type 'page' %}
+<a href="{% url 'quotes.views.quote_view_page' first_page %}">[first page]</a>
+<a href="{% url 'quotes.views.quote_view_page' previous_page %}">[previous page]</a>
+page {{ current_page }}
+<a href="{% url 'quotes.views.quote_view_page' next_page %}">[next page]</a>
+<a href="{% url 'quotes.views.quote_view_page' last_page %}">[last page]</a>
+{% else %}
+<a href="{% url 'quotes.views.quote_view_top_page' first_page %}">[first page]</a>
+<a href="{% url 'quotes.views.quote_view_top_page' previous_page %}">[previous page]</a>
+page {{ current_top }}
+<a href="{% url 'quotes.views.quote_view_top_page' next_page %}">[next page]</a>
+<a href="{% url 'quotes.views.quote_view_top_page' last_page %}">[last page]</a>
+{% endifequal %}
+</p>
+
+{% for q in quote_list %}
+<h2 class="quoteheader"><a class="quoteheader" href="/quotes/{{q.id}}/">{{q.id}} {{ q.title }}</a></h2>
+<p class="quotebody"><pre>{{ q.text }}</pre></p>
+<p class="quotefooter">
+Score: <b>{{ q.score }}</b> - 
+<a href="/quotes/{{ q.id }}/vote/up/">like</a> -
+<a href="/quotes/{{ q.id }}/vote/down/">dislike</a> -
+Added by {{ q.added_by.username }} at {{ q.added_on }}</p>
+{% endfor %}
+
+<p>Jump to page 
+{% for p in page_list %}
+  {% ifequal p current_page %}
+  {{ p }}
+  {% else %}
+  <a href="/quotes/{{ type }}/{{ p }}/">{{ p }}</a> 
+  {% endifequal %}
+{% endfor %}
+</p>
+
+{% endblock %}
+

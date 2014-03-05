@@ -1,0 +1,20 @@
+{% extends "skeleton.html" %}
+
+{% block leftbar %}
+<h3>carniqui</h3>
+<ul>
+  {% for user in carniqui %}
+  <li><a href="profile/{{user.username}}/">{{ user.username }}</a></li>
+  {% endfor %}
+</ul>
+{% endblock %}
+
+{% block contents %}
+
+<p>blokjestest!</p>
+
+<table>
+{{ blokjes|safe }}
+</table>
+
+{% endblock %}

@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<title>&lt;Domilijn&gt; {% block title %}main page{% endblock %}</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rev="made" href="mailto:joost@carnique.nl">
+
+<meta name="keywords" content="carnique, irc, ircnet, bitchx, irssi, mirc, shoutcast, domilijn, channel, query, starcraft, elwood, schtar">
+<meta name="keywords" content="avoozl, balance, bengeltje, camelman, case, cavey, copini, cybergirl, dunos, dweazle, freebase, fuzzel, g0mpie, garion, gday, gec, gewse, ghostecho, habbie, heretic, jal">
+
+<meta name="keywords" content="jamesoff, jeans, joshx, keez, lauraatje, link-d, linn, m4-io, mactijn, miracle-, nielsie, nix, panique, patches, quoz, rabbit, sabre2th, sbare, shimrod">
+<meta name="keywords" content="shogun, smoke, trylax, turbokip, vlinder, voltath, watashiki, whizzkid, wuush, tri, andy, desmond, mirage, beer, zarq">
+
+<meta name="description" content="Website of the IRC channel #carnique">
+<meta name="author" content="Joost Vunderink">
+<meta name="ROBOTS" content="INDEX,NOFOLLOW">
+
+<link rel="stylesheet" href="http://media.carnique.nl/css/main.css" type="text/css">
+
+</head>
+
+<body>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<!-- Start Top Bar -->
+<td height="132"> 
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <!-- Logo -->
+    <tr> 
+    <td class="logo" colspan="2"><img src="http://media.carnique.nl/images/top_banner.gif" width="546" height="108" alt="[carnique logo]"></td>
+    </tr>
+    <!-- Menubar -->
+    <tr> 
+    <td height="22" class="menubar">
+      &nbsp; <a href="/">home</a> 
+      | <a href="/news/">nieuws</a>
+      | <a href="/whatiscarnique/">wat is carnique?</a> 
+      | <a href="/quotes/">quotes</a>
+{% if user.is_authenticated %}
+{% else %}
+      | <a href="/accounts/login/">login</a>
+{% endif %}
+    </td>
+    <td class="menubar">
+{% if user.is_authenticated %}
+<span style="align: right;">
+Welcome, {{ user.username }} - 
+<a href="/profile/{{ user.username }}/edit/">my profile</a> -
+<a href="/password/edit/">edit password</a> -
+<a href="/accounts/logout/">logout</a>
+</span>
+{% endif %}
+    </td>
+    </tr>
+  </table>
+</td>
+</tr>
+<!-- End Top Bar -->
+<tr>
+<td height="*" valign="top">
+  <!-- Start 3-Column Table -->
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+    <!-- Start Left Bar -->
+    <td width="140" valign="top">
+      <table width="140" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+      <td height="100%" class="leftbar">
+{% block leftbar %}
+        <h3>carniqui</h3>
+        <table>
+        {% for c in carniqui %}
+          <tr><td align="center">
+          {{ c.get_profile.get_square_html|safe }}
+          </td><td align="left" valign="middle">
+          <a href="/profile/{{ c.username }}/">{{ c.username }}</a>
+          </td></tr>
+        {% endfor %}
+        </table>
+{% endblock %}
+      </td>
+      </tr>
+      </table>
+    </td>
+    <!-- End Left Bar -->
+
+    <!-- Start Content  -->
+    <td width="*" valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr> 
+        <td class="content">
+{% block body_top_message %}
+{% if body_top_message %}
+<p style="color: blue;">{{ body_top_message }}</p>
+{% endif %}
+{% endblock %}
+
+{% block body_top_error %}
+{% if body_top_error %}
+<p style="color: red;">{{ body_top_error }}</p>
+{% endif %}
+{% endblock %}
+
+{% block contents %}
+<p>Default contents.</p>
+{% endblock %}
+        </td>
+      </tr>
+      </table>
+    </td>
+    <!-- End Content  -->
+
+    <!-- Start Right Bar -->
+    <td width="140" class="rightbar" valign="top">
+      <h3>Nieuwste quote</h3>
+      <p><a href="{% url 'quotes.views.quote_view' latest_quote.id %}">{{ latest_quote.title }}</a>
+      ({{latest_quote.added_on }})
+      </p>
+
+      {% if blogs %}
+      <h3>Blogs</h3>
+      <table width="140" border="0" cellpadding="2" cellspacing="0">
+      <tr>
+      <td>
+      {% for b in blogs %}
+      <a href="{{ b.url }}">{{ b.name }}</a><br />
+      {% endfor %}
+      </td>
+      </tr>
+      </table>
+      {% endif %}
+    </td>
+    <!-- End Right Bar -->
+
+    </tr>
+  </table>
+</td>
+</tr>
+
+<!-- Start Footer -->
+<tr>
+  <td height="15" class="footer">
+  <div align="center">
+  Deze pagina is gegenereerd op 12-07-09 13:04:34 - <a href="http://validator.w3.org/check/referer" target="_validate">Valideer HTML</a> <br> <img src="http://media.carnique.nl/images/kkmproof.png" alt="KKM Proof">
+    
+  </div>
+  </td>
+</tr>
+<!-- End Footer -->
+</table>
+
+
+</body>
+</html>

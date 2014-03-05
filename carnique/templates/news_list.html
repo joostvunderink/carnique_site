@@ -1,0 +1,18 @@
+{% extends "skeleton.html" %}
+
+{% block contents %}
+<h3>News</h3>
+
+{% if can_add_news %}
+<p><a href="/news/add/">Add news</a></p>
+{% endif %}
+
+{% for n in news_list %}
+<p><b>{{ n.title }}</b><br />
+Posted by {{ n.added_by.username }} on {{ n.added_on }}<br />
+{{ n.text }}
+</p>
+{% endfor %}
+
+{% endblock %}
+

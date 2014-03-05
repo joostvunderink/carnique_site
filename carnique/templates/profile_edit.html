@@ -1,0 +1,62 @@
+{% extends "skeleton.html" %}
+
+{% block title %}
+{{ puser.username }}
+{% endblock %}
+
+{% block contents %}
+<p>Edit your profile here. The profile text, twitter username and blog URL are public and can be seen by all visitors of this site; your real name, birthday and location are only visible to carniqui who are logged in.</p>
+
+<form action="/profile/{{ puser.username }}/edit/" method="post">
+<table>
+<tr>
+    <td><label for="id_profile_realname">Real Name</label></td>
+    <td><input id="id_profile_realname" type="text" name="profile_realname" {% if profile.realname %}value="{{ profile.realname }}"{% endif %}/></td>
+</tr>
+
+<tr>
+    <td><label for="id_profile_location">Location</label></td>
+    <td><input id="id_profile_location" type="text" name="profile_location" {% if profile.location %}value="{{ profile.location }}"{% endif %}/></td>
+</tr>
+
+<tr>
+    <td><label for="id_profile_birthday">Birthday</label></td>
+    <td><input id="id_profile_birthday" type="text" name="profile_birthday" {% if profile.birthday %}value="{{ profile.birthday }}"{% endif %}/> (YYYY-MM-DD, e.g. "1981-08-23")</td>
+</tr>
+
+<tr>
+    <td><label for="id_profile_twitter_username">Twitter Username</label></td>
+    <td><input id="id_profile_twitter_username" type="text" name="profile_twitter_username" {% if profile.twitter_username %}value="{{ profile.twitter_username }}"{% endif %}/></td>
+</tr>
+
+<tr>
+    <td><label for="id_profile_blog_name">Blog Name</label></td>
+    <td><input id="id_profile_blog_name" type="text" name="profile_blog_name" {% if profile.blog_name %}value="{{ profile.blog_name }}"{% endif %}/></td>
+</tr>
+
+<tr>
+    <td><label for="id_profile_blog_url">Blog URL</label></td>
+    <td><input id="id_profile_blog_url" type="text" name="profile_blog_url" {% if profile.blog_url %}value="{{ profile.blog_url }}"{% endif %}/></td>
+</tr>
+
+<tr>
+    <td><label for="id_profile_text">Profile</label></td>
+    <td><textarea id="id_profile_text" name="profile_text" id="id_profile_text" cols="60" rows="6">{{ profile_text }}</textarea></td>
+</tr>
+
+</table>
+<input type="submit" value="submit" />
+</form>
+
+<p>You can use certain bbcode tags in your profile:</p>
+<ul>
+<li>[b]text[/b] becomes <b>text</b></li>
+<li>[i]text[/i] becomes <i>text</i></li>
+<li>[img]http://...[/img] becomes an image</li>
+<li>[url]http://...[/url] becomes a link</li>
+<li>[url=http://...]text[/url] becomes a link with 'text' as text</li>
+<li>[ul] [li]item[/li] [li]item[/li] [/ul] becomes a list</li>
+</ul>
+
+{% endblock %}
+

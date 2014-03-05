@@ -1,0 +1,17 @@
+{% extends "skeleton.html" %}
+
+{% block contents %}
+
+{% if logged_in_user.is_authenticated %}
+<p><a href="/quotes/add/">Add new quote</a> - <a href="/quotes/random/">Random quote</a></p>
+{% endif %}
+
+<h3>List of quotes</h3>
+<ul>
+{% for q in quote_list %}
+<li>[{{q.id}}] ({{ q.added_by.username }} at {{ q.added_on }}) <a href="/quotes/{{ q.id }}/">{{ q.title }}</a></li>
+{% endfor %}
+</ul>
+
+{% endblock %}
+

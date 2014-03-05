@@ -1,0 +1,22 @@
+{% extends "skeleton.html" %}
+
+{% block contents %}
+<p>Request [{{ request }}]</p>
+
+<h2>Wat werkt</h2>
+
+<ul>
+  {% for i in is_done %}
+  <li>{{ i }}</li>
+  {% endfor %}
+</ul>
+
+<h2>Wat moet er nog gefixt worden</h2>
+
+<ul>
+  {% for i in todo %}
+  <li>{{ i }}</li>
+  {% endfor %}
+</ul>
+
+{% endblock %}
