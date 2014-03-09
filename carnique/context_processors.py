@@ -35,6 +35,7 @@ def get_blogs(request):
             blogs.append({
                 'name': p.blog_name,
                 'url': p.blog_url,
+                'username': c.username,
             })
 
     return {'blogs': blogs}
