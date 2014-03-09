@@ -31,6 +31,8 @@ def add_data():
     up = UserProfile(
         user=u_test,
         is_member=True,
+        blog_name="Zapagaloogah",
+        blog_url="https://zapagaloogah.spotblog.unk",
     )
     up.save()
 
