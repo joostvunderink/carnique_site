@@ -1,0 +1,19 @@
+body {
+    background: #ffffff;
+}
+
+div.cnq-header {
+    background: #a2beeb;
+    text-align: center;
+    display: block;
+    margin-top: 50px; /*How to make this div right below the nav menu?*/
+}
+
+div.cnq-body {
+    margin-top: 20px;
+}
+
+div.cnq-navbar {
+    color: #dddddd;
+    background: #2233ab;
+}
