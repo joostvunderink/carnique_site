@@ -16,3 +16,7 @@ DATABASES = {
 TEMPLATE_DIRS = (
     '/home/jvunder/czapka/src/carnique_site/carnique/templates',
 )
+
+STATICFILES_DIRS = (
+    '/home/jvunder/czapka/src/carnique_site/carnique/static',
+)
