@@ -4,9 +4,13 @@ body {
 
 div.cnq-header {
     background: #a2beeb;
-    text-align: center;
+    /*text-align: center;*/
     display: block;
-    margin-top: 50px; /*How to make this div right below the nav menu?*/
+    margin-top: 70px; /*How to make this div right below the nav menu?*/
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    border-radius: 8px;
 }
 
 div.cnq-body {
@@ -15,5 +19,5 @@ div.cnq-body {
 
 div.cnq-navbar {
     color: #dddddd;
-    background: #2233ab;
+    background: #182680;
 }
