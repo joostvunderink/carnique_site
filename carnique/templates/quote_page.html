@@ -4,13 +4,6 @@
 
 {% block contents %}
 
-{% if user.is_authenticated %}
-<p><a href="/quotes/add/">Add new quote</a> -
-<a href="/quotes/random/">Random quote</a> -
-<a href="/quotes/top/1/">Top quotes</a>
-</p>
-{% endif %}
-
 <p>
 {% ifequal type 'page' %}
 Page {{ current_page }} - 
@@ -20,11 +13,18 @@ Page {{ current_page }} -
 <a href="{% url 'quotes.views.quote_view_page' last_page %}"><button type="button" class="btn btn-sm btn-default">Last page</button></a>
 {% else %}
 page {{ current_top }} - 
-<a href="{% url 'quotes.views.quote_view_top_page' first_page %}">[first page]</a>
+<a href="{% url 'quotes.views.quote_view_top_page' first_page %}"><button type="button" class="btn btn-sm btn-default">First page</button></a>
 <a href="{% url 'quotes.views.quote_view_top_page' previous_page %}"><button type="button" class="btn btn-sm btn-default">Previous page</button></a>
 <a href="{% url 'quotes.views.quote_view_top_page' next_page %}"><button type="button" class="btn btn-sm btn-default">Next page</button></a>
 <a href="{% url 'quotes.views.quote_view_top_page' last_page %}"><button type="button" class="btn btn-sm btn-default">Last page</button></a>
 {% endifequal %}
+{% if user.is_authenticated %}
+<a href="/quotes/add/"><button type="button" class="btn btn-sm btn-default">Add quote</button></a>
+<a href="/quotes/random/"><button type="button" class="btn btn-sm btn-default">Random quote</button></a>
+<a href="/quotes/top/1/"><button type="button" class="btn btn-sm btn-default">Top quotes</button></a>
+</p>
+{% endif %}
+
 </p>
 
 {% for q in quote_list %}
