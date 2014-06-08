@@ -4,7 +4,11 @@
 
 {% block contents %}
 
-<p><a href="/quotes/">view all quotes</a> - <a href="/quotes/random/">view random quote</a> - <a href="/quotes/add/">add quote</a></p>
+<p>
+    <a href="/quotes/random/">
+        <button type="button" class="btn btn-sm btn-default">Toon willekeurige quote</button>
+    </a>
+</p>
 <h3>{{ quote.title }}</h3>
 <p><a href="/quotes/{{ quote.id }}/">[{{ quote.id }}]</a>
 Added by

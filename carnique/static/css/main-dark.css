@@ -46,22 +46,21 @@ body {
 }
 
 div.container {
-    color: #111111;
+    background: #052D6E;
+    color: #ffffff;
     margin-top: 50px;
 }
 
 div.cnq-header {
-/*    background: #08578F;
-    color: #ffffff;
-*/    
-    background: #5FAFE7;
-    color: #000000;
+    background: #104BA9;
+    /*text-align: center;*/
     display: block;
     margin-top: 20px;
     margin-bottom: 2px;
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 20px;
+    /*border-radius: 8px;*/
     font-size: 32px;
     border: 1px solid #999999;
 }
@@ -70,35 +69,32 @@ div.cnq-body {
     margin-top: 20px;
 }
 
-.navbar {
-    border-radius: 0px;
-    margin-bottom: 0px;
-}
-
-nav.navbar {
-    color: #DF7E00;
-    background: #08578F;
+div.cnq-navbar {
+    color: #A64300;
+    background: #FFAB73;
     border-radius: 0px;
 }
 
-.panel-default > .panel-heading {
-    background: #5FAFE7;
-    color: #000000;
+.panel-default>.panel-heading {
+    background: #BFA330;
+    /*#A68500;*/
+    color: #FFE373;
 }
 
-.panel-default > .panel-body {
-    background: #dddddd;
-    color: #000000;
+div.panel-body {
+    background: #FFE373;
+    color: #A68500;
 }
 
-a:link    { color: #DF7E00; }
-a:visited { color: #DF7E00; }
-a:active  { color: #DF7E00; }
-a:hover   { color: #DF7E00; }
+a:link    { color: #FF6700; }
+a:visited { color: #FF6700; }
+a:active  { color: #FF6700; }
+a:hover   { color: #FF6700; }
 
-a.navbar:hover {
-    background: #2580C1;
-}
+a.navbar-default:link    { color: #FF6700; }
+a.navbar-default:visited { color: #FF6700; }
+a.navbar-default:active  { color: #FF6700; }
+a.navbar-default:hover   { color: #FF6700; }
 
 .navbar-default .navbar-nav>li>a {
     color: #FF6700;
