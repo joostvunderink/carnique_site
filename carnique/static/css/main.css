@@ -51,9 +51,6 @@ div.container {
 }
 
 div.cnq-header {
-/*    background: #08578F;
-    color: #ffffff;
-*/    
     background: #5FAFE7;
     color: #000000;
     display: block;
@@ -70,6 +67,8 @@ div.cnq-body {
     margin-top: 20px;
 }
 
+/* The navigation bar */
+
 .navbar {
     border-radius: 0px;
     margin-bottom: 0px;
@@ -80,6 +79,30 @@ nav.navbar {
     background: #08578F;
     border-radius: 0px;
 }
+
+ul.dropdown-menu {
+    color: #DF7E00;
+    background: #08578F;
+}
+
+a.dropdown-item {
+    color: #DF7E00 !important;
+}
+
+.navbar a:hover {
+    background-color: #2580C1 !important;
+}
+
+li.navbar {
+    margin-bottom: 0px;
+}
+
+/*Make sure the pulldowns in the navigation bar appear on hover, not on click.*/
+ul.nav li.dropdown:hover > ul.dropdown-menu {
+    display: block;
+}
+
+/* The panels on the right */
 
 .panel-default {
     border: 1px solid #08578F;
@@ -104,16 +127,3 @@ a:visited { color: #DF7E00; }
 a:active  { color: #DF7E00; }
 a:hover   { color: #DF7E00; }
 
-a.navbar:hover {
-    color: #2580C1;
-    background: #2580C1; /* Why doesn't this work? */
-}
-
-li.navbar {
-    margin-bottom: 0px;
-}
-
-/*Make sure the pulldowns in the navigation bar appear on hover, not on click.*/
-ul.nav li.dropdown:hover > ul.dropdown-menu {
-    display: block;
-}

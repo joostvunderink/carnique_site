@@ -25,10 +25,10 @@
           <li class="navbar dropdown">
             <a href="/quotes/" class="navbar" data-toggle="dropdown">Quotes</a>
             <ul class="dropdown-menu">
-              <li><a href="/quotes/">Alle quotes</a></li>
-              <li><a href="/quotes/random/">Willekeurige quote</a></li>
+              <li><a href="/quotes/" class="dropdown-item">Alle quotes</a></li>
+              <li><a href="/quotes/random/" class="dropdown-item">Willekeurige quote</a></li>
               <li class="divider"></li>
-              <li><a href="/quotes/add/">Voeg quote toe</a></li>
+              <li><a href="/quotes/add/" class="dropdown-item">Voeg quote toe</a></li>
             </ul>
           </li>
           <li class="navbar"><a class="navbar" href="/whatiscarnique/">Info</a></li>
@@ -37,11 +37,11 @@
         <ul class="nav navbar-nav navbar-right">
           {% if user.is_authenticated %}
           <li class="navbar dropdown">
-            <a href="/accounts/profile/" class="navbar" data-toggle="dropdown">Ingelogd als {{ user.first_name }}</a>
+            <a href="/accounts/profile/" class="dropdown-item" data-toggle="dropdown">Ingelogd als {{ user.first_name }}</a>
             <ul class="dropdown-menu">
-              <li><a href="/profile/{{user.username}}/edit/">Mijn profiel</a></li>
+              <li><a href="/profile/{{user.username}}/edit/" class="dropdown-item">Mijn profiel</a></li>
               <li class="divider"></li>
-              <li><a href="/accounts/logout/">Log uit</a></li>
+              <li><a href="/accounts/logout/" class="dropdown-item">Log uit</a></li>
             </ul>
           </li>
           {% else %}
