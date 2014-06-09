@@ -1,4 +1,4 @@
-{% extends "skeleton.html" %}
+{% extends "base.html" %}
 
 {% block title %}
 {{ puser.username }}
@@ -8,6 +8,7 @@
 <p>Edit your profile here. The profile text, twitter username and blog URL are public and can be seen by all visitors of this site; your real name, birthday and location are only visible to carniqui who are logged in.</p>
 
 <form action="/profile/{{ puser.username }}/edit/" method="post">
+{% csrf_token %}
 <table>
 <tr>
     <td><label for="id_profile_realname">Real Name</label></td>
