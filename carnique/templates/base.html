@@ -37,7 +37,7 @@
         <ul class="nav navbar-nav navbar-right">
           {% if user.is_authenticated %}
           <li class="navbar dropdown">
-            <a href="/accounts/profile/" class="dropdown-item" data-toggle="dropdown">Ingelogd als {{ user.first_name }}</a>
+            <a href="/accounts/profile/" class="dropdown-item" data-toggle="dropdown">Ingelogd als {{ user.username }}</a>
             <ul class="dropdown-menu">
               <li><a href="/profile/{{user.username}}/edit/" class="dropdown-item">Mijn profiel</a></li>
               <li class="divider"></li>
