@@ -81,14 +81,22 @@ nav.navbar {
     border-radius: 0px;
 }
 
+.panel-default {
+    border: 1px solid #08578F;
+    border-radius: 6px;
+}
 .panel-default > .panel-heading {
     background: #5FAFE7;
     color: #000000;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
 }
 
 .panel-default > .panel-body {
-    background: #dddddd;
+    background: #eee;
     color: #000000;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
 }
 
 a:link    { color: #DF7E00; }
@@ -97,15 +105,14 @@ a:active  { color: #DF7E00; }
 a:hover   { color: #DF7E00; }
 
 a.navbar:hover {
-    background: #2580C1;
+    color: #2580C1;
+    background: #2580C1; /* Why doesn't this work? */
 }
 
-.navbar-default .navbar-nav>li>a {
-    color: #FF6700;
-}
 li.navbar {
     margin-bottom: 0px;
 }
+
 /*Make sure the pulldowns in the navigation bar appear on hover, not on click.*/
 ul.nav li.dropdown:hover > ul.dropdown-menu {
     display: block;
