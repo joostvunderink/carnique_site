@@ -1,6 +1,9 @@
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
+import django.utils.timezone
+from django.utils import simplejson
+from django.views.decorators.csrf import csrf_exempt
 
 from carnique.quotes.models import Quote, QuoteVote
 from carnique.main.views import cnq_render_to_response, convert_bb_to_html
@@ -130,11 +133,48 @@ def quote_add(request):
     # message "Quote added" at the top.
     return HttpResponseRedirect("/quotes/%d/" % q.id)
 
+@csrf_exempt
+def quote_vote(request):
+    if 'quote_id' not in request.POST:
+        return json_to_http({
+            'success': False,
+            'error': 'no quote id given',
+        })
+
+    quote_id = int(request.POST['quote_id'])
+    direction = request.POST['direction']
+
+    q = get_object_or_404(Quote, pk=quote_id)
+
+    if _already_voted(q, request):
+        return json_to_http({
+            'success': False,
+            'error': "you have already voted on this quote",
+        })
+
+    print "qv3 '%s'" % direction;
+    if direction == 'up':
+        _vote(q, request, 1)
+    else:
+        _vote(q, request, -1)
+
+    data = {
+        'success': True,
+        'new_score': q.score,
+        'quote_id': q.id,
+    }
+
+    return json_to_http(data)
+
+def json_to_http(data):
+    return HttpResponse(simplejson.dumps(data), mimetype='application/json')
+
 def _already_voted(quote, request):
     qvs = QuoteVote.objects.all().filter(quote=quote)
+    now = django.utils.timezone.now()
 
     for qv in qvs:
-        if datetime.datetime.now() - qv.ts < quote_vote_expiry_time:
+        if now - qv.ts < quote_vote_expiry_time:
             return True
 
     return False

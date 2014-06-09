@@ -8,6 +8,9 @@ urlpatterns = patterns('',
     (r'^random/$', 'carnique.quotes.views.quote_view_random'),
     (r'^add/$', 'carnique.quotes.views.quote_add'),
 
+    # jquery interactive vote
+    (r'^vote/$', 'carnique.quotes.views.quote_vote'),
+
     (r'^(?P<quote_id>[\d]+)/vote/up/$', 'carnique.quotes.views.quote_vote_up'),
     (r'^(?P<quote_id>[\d]+)/vote/down/$', 'carnique.quotes.views.quote_vote_down'),
 )
