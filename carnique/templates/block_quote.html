@@ -1,0 +1,20 @@
+<h3>{{ quote.title }}</h3>
+Score <span id="quote_score_{{quote.id}}">{{ quote.score }}</span> -
+<span id="quote_vote_text_{{quote.id}}">
+{% if quote.can_vote %}
+<button class="quote_vote_up" value="{{ quote.id }}">leuk</button> -
+<button class="quote_vote_down" value="{{ quote.id }}">stom</button>
+{% else %}
+Je kunt nu niet stemmen op deze quote.
+{% endif %}
+</span>
+</p>
+<pre>{{ quote.text }}</pre>
+<p>Quote <a href="/quotes/{{ quote.id }}/">{{ quote.id }}</a> - 
+Toegevoegd door 
+{% if quote.added_by.is_active and quote.added_by.get_profile.is_member %}
+<a href="/profile/{{ quote.added_by.username }}">{{ quote.added_by.username }}</a>
+{% else %}
+{{ quote.added_by.username }}
+{% endif %}
+op {{ quote.added_on }}

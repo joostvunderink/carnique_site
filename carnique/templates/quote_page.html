@@ -28,14 +28,16 @@ page {{ current_top }} -
 </p>
 
 {% for q in quote_list %}
-<h2 class="quoteheader"><a class="quoteheader" href="/quotes/{{q.id}}/">{{ q.title }}</a></h2>
+{% include 'block_quote.html' with quote=q %}
+
+<!-- <h2 class="quoteheader"><a class="quoteheader" href="/quotes/{{q.id}}/">{{ q.title }}</a></h2>
 <p class="quotebody"><pre>{{ q.text }}</pre></p>
 <p class="quotefooter">
 Score: <b>{{ q.score }}</b> - 
 <a href="/quotes/{{ q.id }}/vote/up/">like</a> -
 <a href="/quotes/{{ q.id }}/vote/down/">dislike</a> -
 Added by {{ q.added_by.username }} at {{ q.added_on }}</p>
-{% endfor %}
+ -->{% endfor %}
 
 <p>Jump to page 
 {% for p in page_list %}
@@ -49,3 +51,6 @@ Added by {{ q.added_by.username }} at {{ q.added_on }}</p>
 
 {% endblock %}
 
+{% block footer %}
+<script src="/static/js/quote_vote.js"></script>
+{% endblock %}
