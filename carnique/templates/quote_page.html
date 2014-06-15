@@ -21,12 +21,20 @@
 {% block footer %}
 <script src="/static/js/quote_vote.js"></script>
 <script language="javascript">
+function search() {
+    search_term = $("input#quote_search").val();
+    console.log(search_term);
+    window.location = "/quotes/?o=score&q=" + search_term;
+}
 $(document).ready(function() {
     console.log("moo");
     $("button#quote_search").click(function(e) {
-        search_term = $("input#quote_search").val();
-        console.log(search_term);
-        window.location = "/quotes/?q=" + search_term;
+        search();
+    });
+    $("input#quote_search").keydown(function (e) {
+        if (e.keyCode == 13) {
+            search();
+        }
     });
     $("input#quote_search").focus();
 });
