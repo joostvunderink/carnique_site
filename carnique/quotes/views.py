@@ -38,10 +38,12 @@ def quote_list(request):
     })
 
 def _get_page_of_quotes(quotes, page_number):
-    quotes_per_page = 12
+    quotes_per_page = 10
 
     num_quotes = len(quotes)
-    num_pages = int(num_quotes / quotes_per_page) + 1
+    num_pages = int(num_quotes / quotes_per_page)
+    if num_quotes % quotes_per_page != 0:
+        num_pages += 1
 
     if (page_number - 1) * quotes_per_page > num_quotes:
         raise Http404()
@@ -64,7 +66,28 @@ def _get_page_of_quotes(quotes, page_number):
         'next_page': next_page,
         'previous_page': previous_page,
         'num_pages': num_pages,
+        'close_nav': _get_close_nav_pages(page_number, 1, num_pages),
     }
+
+def _get_close_nav_pages(current_page, first_page, last_page):
+    print "gcnp %d %d %d" % (current_page, first_page, last_page)
+    page_list = [
+        current_page - 10,
+        current_page - 2,
+        current_page - 1,
+        current_page,
+        current_page + 1,
+        current_page + 2,
+        current_page + 10,
+    ]
+
+    while page_list[0] < first_page:
+        page_list.pop(0)
+
+    while page_list[-1] > last_page:
+        page_list.pop(-1)
+
+    return page_list
 
 def quote_view_top_page(request, page_number=1):
     page_number = int(page_number)
@@ -82,6 +105,7 @@ def quote_view_top_page(request, page_number=1):
         'previous_page': result['previous_page'],
         'next_page': result['next_page'],
         'type': 'top',
+        'close_nav': result['close_nav'],
     })
 
 def quote_view_page(request, page_number=1):
@@ -100,6 +124,7 @@ def quote_view_page(request, page_number=1):
         'previous_page': result['previous_page'],
         'next_page': result['next_page'],
         'type': 'page',
+        'close_nav': result['close_nav'],
     })
 
 @login_required
