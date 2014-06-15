@@ -4,25 +4,44 @@
 
 {% block contents %}
 
-<p>Page {{current_page}} - 
+<p>Page {{current_page}} -
 <span style="text-align: center;">
 {% ifequal type 'page' %}
-
-<a href="{% url 'quotes.views.quote_view_page' first_page %}"><button type="button" class="btn btn-sm btn-default">&lt;&lt;</button></a>
-<a href="{% url 'quotes.views.quote_view_page' previous_page %}"><button type="button" class="btn btn-sm btn-default">&lt;</button></a>
-{% for num in close_nav %}
-<a href="{% url 'quotes.views.quote_view_page' num %}">
-    <button type="button" class="btn btn-sm btn-default">{{ num }}</button>
-</a>
-{% endfor %}
-<a href="{% url 'quotes.views.quote_view_page' next_page %}"><button type="button" class="btn btn-sm btn-default">&gt;</button></a>
-<a href="{% url 'quotes.views.quote_view_page' last_page %}"><button type="button" class="btn btn-sm btn-default">&gt;&gt;</button></a>
+    <a href="{% url 'quotes.views.quote_view_page' first_page %}">
+        <button type="button" class="btn btn-sm btn-default">&lt;&lt;</button>
+    </a>
+    <a href="{% url 'quotes.views.quote_view_page' previous_page %}">
+        <button type="button" class="btn btn-sm btn-default">&lt;</button>
+    </a>
+    {% for num in close_nav %}
+    <a href="{% url 'quotes.views.quote_view_page' num %}">
+        <button type="button" class="btn btn-sm btn-default">{{ num }}</button>
+    </a>
+    {% endfor %}
+    <a href="{% url 'quotes.views.quote_view_page' next_page %}">
+        <button type="button" class="btn btn-sm btn-default">&gt;</button>
+    </a>
+    <a href="{% url 'quotes.views.quote_view_page' last_page %}">
+        <button type="button" class="btn btn-sm btn-default">&gt;&gt;</button>
+    </a>
 {% else %}
-page {{ current_top }} - 
-<a href="{% url 'quotes.views.quote_view_top_page' first_page %}"><button type="button" class="btn btn-sm btn-default">&lt;&lt;</button></a>
-<a href="{% url 'quotes.views.quote_view_top_page' previous_page %}"><button type="button" class="btn btn-sm btn-default">&lt;</button></a>
-<a href="{% url 'quotes.views.quote_view_top_page' next_page %}"><button type="button" class="btn btn-sm btn-default">&gt;</button></a>
-<a href="{% url 'quotes.views.quote_view_top_page' last_page %}"><button type="button" class="btn btn-sm btn-default">&gt;&gt;</button></a>
+    <a href="{% url 'quotes.views.quote_view_top_page' first_page %}">
+        <button type="button" class="btn btn-sm btn-default">&lt;&lt;</button>
+    </a>
+    <a href="{% url 'quotes.views.quote_view_top_page' previous_page %}">
+        <button type="button" class="btn btn-sm btn-default">&lt;</button>
+    </a>
+    {% for num in close_nav %}
+    <a href="{% url 'quotes.views.quote_view_top_page' num %}">
+        <button type="button" class="btn btn-sm btn-default">{{ num }}</button>
+    </a>
+    {% endfor %}
+    <a href="{% url 'quotes.views.quote_view_top_page' next_page %}">
+        <button type="button" class="btn btn-sm btn-default">&gt;</button>
+    </a>
+    <a href="{% url 'quotes.views.quote_view_top_page' last_page %}">
+        <button type="button" class="btn btn-sm btn-default">&gt;&gt;</button>
+    </a>
 {% endifequal %}
 </span>
 </p>
@@ -31,33 +50,47 @@ page {{ current_top }} -
 {% include 'block_quote.html' with quote=q %}
 {% endfor %}
 
-<p>Page {{current_page}} - 
+<p>Page {{current_page}} -
 <span style="text-align: center;">
 {% ifequal type 'page' %}
-
-<a href="{% url 'quotes.views.quote_view_page' first_page %}"><button type="button" class="btn btn-sm btn-default">&lt;&lt;</button></a>
-<a href="{% url 'quotes.views.quote_view_page' previous_page %}"><button type="button" class="btn btn-sm btn-default">&lt;</button></a>
-{% for num in close_nav %}
-<a href="{% url 'quotes.views.quote_view_page' num %}">
-    <button type="button" class="btn btn-sm btn-default">{{ num }}</button>
-</a>
-{% endfor %}
-<a href="{% url 'quotes.views.quote_view_page' next_page %}"><button type="button" class="btn btn-sm btn-default">&gt;</button></a>
-<a href="{% url 'quotes.views.quote_view_page' last_page %}"><button type="button" class="btn btn-sm btn-default">&gt;&gt;</button></a>
+    <a href="{% url 'quotes.views.quote_view_page' first_page %}">
+        <button type="button" class="btn btn-sm btn-default">&lt;&lt;</button>
+    </a>
+    <a href="{% url 'quotes.views.quote_view_page' previous_page %}">
+        <button type="button" class="btn btn-sm btn-default">&lt;</button>
+    </a>
+    {% for num in close_nav %}
+    <a href="{% url 'quotes.views.quote_view_page' num %}">
+        <button type="button" class="btn btn-sm btn-default">{{ num }}</button>
+    </a>
+    {% endfor %}
+    <a href="{% url 'quotes.views.quote_view_page' next_page %}">
+        <button type="button" class="btn btn-sm btn-default">&gt;</button>
+    </a>
+    <a href="{% url 'quotes.views.quote_view_page' last_page %}">
+        <button type="button" class="btn btn-sm btn-default">&gt;&gt;</button>
+    </a>
 {% else %}
-<a href="{% url 'quotes.views.quote_view_top_page' first_page %}"><button type="button" class="btn btn-sm btn-default">&lt;&lt;</button></a>
-<a href="{% url 'quotes.views.quote_view_top_page' previous_page %}"><button type="button" class="btn btn-sm btn-default">&lt;</button></a>
-{% for num in close_nav %}
-<a href="{% url 'quotes.views.quote_view_top_page' num %}">
-    <button type="button" class="btn btn-sm btn-default">{{ num }}</button>
-</a>
-{% endfor %}
-<a href="{% url 'quotes.views.quote_view_top_page' next_page %}"><button type="button" class="btn btn-sm btn-default">&gt;</button></a>
-<a href="{% url 'quotes.views.quote_view_top_page' last_page %}"><button type="button" class="btn btn-sm btn-default">&gt;&gt;</button></a>
+    <a href="{% url 'quotes.views.quote_view_top_page' first_page %}">
+        <button type="button" class="btn btn-sm btn-default">&lt;&lt;</button>
+    </a>
+    <a href="{% url 'quotes.views.quote_view_top_page' previous_page %}">
+        <button type="button" class="btn btn-sm btn-default">&lt;</button>
+    </a>
+    {% for num in close_nav %}
+    <a href="{% url 'quotes.views.quote_view_top_page' num %}">
+        <button type="button" class="btn btn-sm btn-default">{{ num }}</button>
+    </a>
+    {% endfor %}
+    <a href="{% url 'quotes.views.quote_view_top_page' next_page %}">
+        <button type="button" class="btn btn-sm btn-default">&gt;</button>
+    </a>
+    <a href="{% url 'quotes.views.quote_view_top_page' last_page %}">
+        <button type="button" class="btn btn-sm btn-default">&gt;&gt;</button>
+    </a>
 {% endifequal %}
 </span>
 </p>
-
 
 {% endblock %}
 
