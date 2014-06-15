@@ -13,7 +13,6 @@ class Quote(models.Model):
     added_on  = models.DateField(default=datetime.datetime.now())
 
     def can_vote(self):
-        print "can_vote, qid = '%d'" % self.id;
         return not self._already_voted()
 
     def _already_voted(self):
