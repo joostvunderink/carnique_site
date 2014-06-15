@@ -127,3 +127,19 @@ a:visited { color: #DF7E00; }
 a:active  { color: #DF7E00; }
 a:hover   { color: #DF7E00; }
 
+dl.profile {
+ width:100%;
+ overflow:hidden;
+ background:#ff0;
+ border: 1px solid #08578F;
+}
+dt.profile {
+ float:left;
+ width:30%; /* adjust the width; make sure the total of both is 100% */
+ background: #fff;
+}
+dd.profile {
+ float:left;
+ width:70%; /* adjust the width; make sure the total of both is 100% */
+ background: #fff;
+}

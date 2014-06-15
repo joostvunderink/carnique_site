@@ -5,34 +5,34 @@
 {% endblock %}
 
 {% block contents %}
-<p>{{ puser.username }}'s profile</p>
+<p>Profiel van {{ puser.username }}</p>
 
 {% if user.is_authenticated %}
 <dl class="profile">
 
 {% if puser.get_profile.realname %}
-<dt class="profile">Real name</dt>
+<dt class="profile">Naam</dt>
 <dd class="profile">{{ puser.get_profile.realname }}</dd>
 {% endif %}
 
 {% if puser.get_profile.location %}
-<dt class="profile">Location</dt>
+<dt class="profile">Locatie</dt>
 <dd class="profile">{{ puser.get_profile.location }}</dd>
 {% endif %}
 
 {% if puser.get_profile.birthday %}
-<dt class="profile">Birthday</dt>
+<dt class="profile">Verjaardag</dt>
 <dd class="profile">{{ puser.get_profile.birthday }}</dd>
 {% endif %}
 
 {% if puser.get_profile.blog_url %}
 <dt class="profile">Blog URL</dt>
-<dd class="profile">{{ puser.get_profile.blog_url }}</dd>
+<dd class="profile"><a href="{{ puser.get_profile.blog_url }}">{{ puser.get_profile.blog_url }}</a></dd>
 {% endif %}
 
 {% if puser.get_profile.twitter_username %}
 <dt class="profile">Twitter username</dt>
-<dd class="profile">{{ puser.get_profile.twitter_username }}</dd>
+<dd class="profile"><a href="http://twitter.com/{{ puser.get_profile.twitter_username }}">{{ puser.get_profile.twitter_username }}</a></dd>
 {% endif %}
 
 </dl>
