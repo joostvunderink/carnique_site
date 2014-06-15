@@ -124,7 +124,7 @@ def quotes_view(request):
 
     return cnq_render_to_response('quote_page.html', request, {
         'quote_list': result['paged_quotes'],
-        'search_term': search_term,
+        'search_term': search_term or '',
         'pager_data': {
             'first_page'   : 1,
             'previous_page': result['previous_page'],
