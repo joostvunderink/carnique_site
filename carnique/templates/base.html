@@ -26,6 +26,7 @@
             <a href="/quotes/" class="navbar" data-toggle="dropdown">Quotes</a>
             <ul class="dropdown-menu">
               <li><a href="/quotes/" class="dropdown-item">Alle quotes</a></li>
+              <li><a href="/quotes/top/" class="dropdown-item">Beste quotes</a></li>
               <li><a href="/quotes/random/" class="dropdown-item">Willekeurige quote</a></li>
               <li class="divider"></li>
               <li><a href="/quotes/add/" class="dropdown-item">Voeg quote toe</a></li>
@@ -68,7 +69,6 @@
           </div>
           <div class="panel-body">
            <a href="{% url 'quotes.views.quote_view' latest_quote.id %}">{{ latest_quote.title }}</a>
-        ({{latest_quote.added_on }})
           </div>
         </div>
 

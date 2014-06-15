@@ -1,4 +1,4 @@
-<h3>{{ quote.title }}</h3>
+<h3><a href="/quotes/{{ quote.id }}/">{{ quote.title }}</a></h3>
 Score <span id="quote_score_{{quote.id}}">{{ quote.score }}</span> -
 <span id="quote_vote_text_{{quote.id}}">
 {% if quote.can_vote %}
