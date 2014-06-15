@@ -70,7 +70,6 @@ def _get_page_of_quotes(quotes, page_number):
     }
 
 def _get_close_nav_pages(current_page, first_page, last_page):
-    print "gcnp %d %d %d" % (current_page, first_page, last_page)
     page_list = [
         current_page - 10,
         current_page - 2,
