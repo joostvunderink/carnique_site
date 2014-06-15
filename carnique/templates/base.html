@@ -16,23 +16,30 @@
       </a>
     </div>
 
-    <!-- navbar-fixed-top navbar-inverse -->
     <nav class="navbar" role="navigation">
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li class="navbar"><a class="navbar" href="/news/">Nieuws</a></li>
+
+          <li class="navbar dropdown">
+            <a href="/news/" class="navbar" data-toggle="dropdown">Info</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/news/">Nieuws</a></li>
+              <li><a class="dropdown-item" href="/whatiscarnique/">Wat is Carnique?</a></li>
+              <li><a class="dropdown-item" href="/guidelines/">Richtlijnen</a></li>
+            </ul>
+          </li>
 
           <li class="navbar dropdown">
             <a href="/quotes/" class="navbar" data-toggle="dropdown">Quotes</a>
             <ul class="dropdown-menu">
-              <li><a href="/quotes/" class="dropdown-item">Alle quotes</a></li>
-              <li><a href="/quotes/?o=score" class="dropdown-item">Beste quotes</a></li>
-              <li><a href="/quotes/random/" class="dropdown-item">Willekeurige quote</a></li>
+              <li><a class="dropdown-item" href="/quotes/">Alle quotes</a></li>
+              <li><a class="dropdown-item" href="/quotes/?o=score">Beste quotes</a></li>
+              <li><a class="dropdown-item" href="/quotes/random/">Willekeurige quote</a></li>
               <li class="divider"></li>
               <li><a href="/quotes/add/" class="dropdown-item">Voeg quote toe</a></li>
             </ul>
           </li>
-          <li class="navbar"><a class="navbar" href="/whatiscarnique/">Info</a></li>
+
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
