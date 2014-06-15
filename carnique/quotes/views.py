@@ -4,6 +4,7 @@ from django.shortcuts import get_object_or_404
 import django.utils.timezone
 from django.utils import simplejson
 from django.views.decorators.csrf import csrf_exempt
+from django.core.urlresolvers import reverse
 
 from carnique.quotes.models import Quote, QuoteVote
 from carnique.main.views import cnq_render_to_response, convert_bb_to_html
@@ -28,13 +29,6 @@ def quote_view_random(request):
     return cnq_render_to_response('quote.html', request, {
         'quote': q,
         'quote_text': convert_bb_to_html(q.text),
-    })
-
-def quote_list(request):
-    quotes = Quote.objects.order_by('id').all()
-
-    return cnq_render_to_response('quote_list.html', request, {
-        'quote_list': quotes,
     })
 
 def _get_page_of_quotes(quotes, page_number):
@@ -88,42 +82,57 @@ def _get_close_nav_pages(current_page, first_page, last_page):
 
     return page_list
 
-def quote_view_top_page(request, page_number=1):
-    page_number = int(page_number)
+def quotes_view(request):
+    page_number = request.GET.get('p')
+    if page_number:
+        page_number = int(page_number)
+    else:
+        page_number = 1
 
-    quotes = Quote.objects.order_by('-score', '-id').all()
+    order_by    = request.GET.get('o')
+    search_term = request.GET.get('q')
+
+    quotes = Quote.objects
+
+    if search_term:
+        quotes = quotes.filter(text__icontains=search_term)
+
+    if order_by and order_by == 'score':
+        quotes = quotes.order_by('-score', '-id').all()
+    else:
+        quotes = quotes.order_by('-id').all()
+
+    if not len(quotes):
+        return cnq_render_to_response('quotes_none_found.html', request, {
+            'search_term': search_term,
+        })
+
     result = _get_page_of_quotes(quotes, page_number)
+
+    quote_url = reverse(quotes_view)
+    get_params = []
+
+    if search_term:
+        get_params.append("q=%s" % search_term)
+    if order_by:
+        get_params.append("o=%s" % order_by)
+
+    addition = '&'.join(get_params)
+    quote_url += "?%s" % addition
+    if addition:
+        quote_url += '&'
 
     return cnq_render_to_response('quote_page.html', request, {
         'quote_list': result['paged_quotes'],
-        'num_pages': result['num_pages'],
-        'page_list': range(1, result['num_pages'] + 1),
-        'current_page': page_number,
-        'first_page': 1,
-        'last_page': result['num_pages'],
-        'previous_page': result['previous_page'],
-        'next_page': result['next_page'],
-        'type': 'top',
-        'close_nav': result['close_nav'],
-    })
-
-def quote_view_page(request, page_number=1):
-    page_number = int(page_number)
-
-    quotes = Quote.objects.order_by('-id').all()
-    result = _get_page_of_quotes(quotes, page_number)
-
-    return cnq_render_to_response('quote_page.html', request, {
-        'quote_list': result['paged_quotes'],
-        'num_pages': result['num_pages'],
-        'page_list': range(1, result['num_pages'] + 1),
-        'current_page': page_number,
-        'first_page': 1,
-        'last_page': result['num_pages'],
-        'previous_page': result['previous_page'],
-        'next_page': result['next_page'],
-        'type': 'page',
-        'close_nav': result['close_nav'],
+        'pager_data': {
+            'first_page'   : 1,
+            'previous_page': result['previous_page'],
+            'current_page' : page_number,
+            'next_page'    : result['next_page'],
+            'last_page'    : result['num_pages'],
+            'close_nav'    : result['close_nav'],
+            'url'          : quote_url,
+        }
     })
 
 @login_required

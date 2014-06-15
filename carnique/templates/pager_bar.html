@@ -1,0 +1,22 @@
+<p>Page {{ pager_data.current_page }} -
+<span style="text-align: center;">
+    <a href="{{ pager_data.url }}p={{ pager_data.first_page }}">
+        <button type="button" class="btn btn-sm btn-default">&lt;&lt;</button>
+    </a>
+    <a href="{{ pager_data.url }}p={{ pager_data.previous_page}}">
+        <button type="button" class="btn btn-sm btn-default">&lt;</button>
+    </a>
+    {% for num in pager_data.close_nav %}
+    <a href="{{ pager_data.url }}p={{ num }}">
+        <button type="button" class="btn btn-sm btn-default">{{ num }}</button>
+    </a>
+    {% endfor %}
+    <a href="{{ pager_data.url }}p={{ pager_data.next_page }}">
+        <button type="button" class="btn btn-sm btn-default">&gt;</button>
+    </a>
+    <a href="{{ pager_data.url }}p={{ pager_data.last_page }}">
+        <button type="button" class="btn btn-sm btn-default">&gt;&gt;</button>
+    </a>
+</span>
+</p>
+
