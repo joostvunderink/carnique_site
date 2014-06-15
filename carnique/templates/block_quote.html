@@ -10,11 +10,12 @@ Je kunt nu niet stemmen op deze quote.
 </span>
 </p>
 <pre>{{ quote.text }}</pre>
-<p>Quote <a href="/quotes/{{ quote.id }}/">{{ quote.id }}</a> - 
-Toegevoegd door 
-{% if quote.added_by.is_active and quote.added_by.get_profile.is_member %}
-<a href="/profile/{{ quote.added_by.username }}">{{ quote.added_by.username }}</a>
-{% else %}
-{{ quote.added_by.username }}
-{% endif %}
-op {{ quote.added_on }}
+<p style="text-align: right;">
+    Quote {{ quote.id }} - Toegevoegd door 
+    {% if quote.added_by.is_active and quote.added_by.get_profile.is_member %}
+        <a href="/profile/{{ quote.added_by.username }}">{{ quote.added_by.username }}</a>
+    {% else %}
+        {{ quote.added_by.username }}
+    {% endif %}
+    op {{ quote.added_on }}
+</p>
