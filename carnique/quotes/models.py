@@ -33,6 +33,7 @@ class QuoteVote(models.Model):
     user      = models.ForeignKey(User, null=True)
     ip        = models.IPAddressField()
     ts        = models.DateTimeField(default=datetime.datetime.now())
+    score     = models.IntegerField()
 
     def __unicode__(self):
-        return "Voted on %s on %s from %s" % (self.quote.id, self.ts, self.ip)
+        return "Voted %d on %s on %s from %s" % (self.score, self.quote.id, self.ts, self.ip)

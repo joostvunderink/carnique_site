@@ -221,6 +221,7 @@ def _vote(quote, request, amount):
     qv.quote = quote
     qv.ts = datetime.datetime.now()
     qv.ip = request.META['REMOTE_ADDR']
+    qv.score = amount
     qv.save()
 
 def quote_vote_up(request, quote_id):
