@@ -1,8 +1,9 @@
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, redirect
 import django.utils.timezone
 from django.utils import simplejson
+from django.utils.http import urlquote
 from django.views.decorators.csrf import csrf_exempt
 from django.core.urlresolvers import reverse
 
@@ -82,6 +83,10 @@ def _get_close_nav_pages(current_page, first_page, last_page):
 
     return page_list
 
+def quote_search(request):
+    search_term = urlquote(request.POST['quote_search'])
+    return redirect("/quotes/?q=%s&o=score" % (search_term))
+
 def quotes_view(request):
     page_number = request.GET.get('p')
     if page_number:
@@ -113,7 +118,7 @@ def quotes_view(request):
     get_params = []
 
     if search_term:
-        get_params.append("q=%s" % search_term)
+        get_params.append("q=%s" % urlquote(search_term))
     if order_by:
         get_params.append("o=%s" % order_by)
 

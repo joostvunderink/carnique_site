@@ -5,10 +5,6 @@
 {% block contents %}
 
 {% include 'pager_bar.html' with pager_data=pager_data %}
-<div id="quote_search" class="quote_search">
-    <input id="quote_search" type="text" value="{{ search_term }}"></input>
-    <button class="btn btn-sm btn-default" id="quote_search">Zoek</button>
-</div>
 
 {% for q in quote_list %}
 {% include 'block_quote.html' with quote=q %}
@@ -20,24 +16,4 @@
 
 {% block footer %}
 <script src="/static/js/quote_vote.js"></script>
-<script language="javascript">
-function search() {
-    search_term = $("input#quote_search").val();
-    console.log(search_term);
-    window.location = "/quotes/?o=score&q=" + search_term;
-}
-$(document).ready(function() {
-    console.log("moo");
-    $("button#quote_search").click(function(e) {
-        search();
-    });
-    $("input#quote_search").keydown(function (e) {
-        if (e.keyCode == 13) {
-            search();
-        }
-    });
-    $("input#quote_search").focus();
-});
-
-</script>
 {% endblock %}

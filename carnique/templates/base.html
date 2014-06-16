@@ -42,6 +42,14 @@
 
         </ul>
 
+        <form class="navbar-form navbar-left" role="search" action="/quotes/search/" method="POST">
+          {% csrf_token %}
+          <div class="form-group">
+            <input id="quote_search" name="quote_search" type="text" class="form-control" placeholder="Quote tekst">
+          </div>
+          <button id="quote_search" type="submit" class="btn btn-default">Zoek</button>
+        </form>
+
         <ul class="nav navbar-nav navbar-right">
           {% if user.is_authenticated %}
           <li class="navbar dropdown">
