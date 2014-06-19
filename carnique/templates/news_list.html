@@ -3,15 +3,14 @@
 {% block title %}Nieuws{% endblock %}
 
 {% block contents %}
-<h3>Nieuws</h3>
 
 {% if can_add_news %}
 <p><a href="/news/add/">Voeg nieuws toe</a></p>
 {% endif %}
 
 {% for n in news_list %}
-<p><b>{{ n.title }}</b><br>
-{{ n.bbed_text|safe }}<br>
+<h3>{{ n.title }}</h3>
+<p>{{ n.bbed_text|safe }}<br>
 <em>Door {{ n.added_by.username }} op {{ n.added_on|date:"Y-m-d" }}</em><br>
 </p>
 {% endfor %}
