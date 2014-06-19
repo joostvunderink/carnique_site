@@ -17,5 +17,5 @@ Je kunt nu niet stemmen op deze quote.
     {% else %}
         {{ quote.added_by.username }}
     {% endif %}
-    op {{ quote.added_on }}
+    op {{ quote.added_on|date:"Y-m-d" }}
 </p>

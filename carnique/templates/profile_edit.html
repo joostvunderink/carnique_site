@@ -22,7 +22,7 @@
 
 <tr>
     <td><label for="id_profile_birthday">Birthday</label></td>
-    <td><input id="id_profile_birthday" type="text" name="profile_birthday" {% if profile.birthday %}value="{{ profile.birthday }}"{% endif %}/> (YYYY-MM-DD, e.g. "1981-08-23")</td>
+    <td><input id="id_profile_birthday" type="text" name="profile_birthday" {% if profile.birthday %}value="{{ profile.birthday|date:"Y-m-d" }}"{% endif %}/> (YYYY-MM-DD, e.g. "1981-08-23")</td>
 </tr>
 
 <tr>
