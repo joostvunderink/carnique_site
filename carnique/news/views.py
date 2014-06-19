@@ -5,7 +5,7 @@ from carnique.news.models import News
 from carnique.main.views import cnq_render_to_response
 
 def news_list(request):
-    news = News.objects.all()
+    news = News.objects.order_by('-id').all()
 
     can_add_news = False
     if request.user.is_authenticated:

@@ -1,3 +1,34 @@
+import re
+from django.utils.html import escape
+
+def convert_bb_to_html(text):
+    """Converts a piece of text with bb-tags (like [b] and [img]) to
+    html. Any 'real' HTML tags that were present in the original text
+    are html-escaped."""
+
+    # First escape the text to get rid of all HTML tags.
+    text = escape(text)
+
+    # Now we can safely replace the bb-tags and be sure that those will be
+    # the only HTML tags in the text.
+    replacements = [
+        ('\[b\](.+?)\[/b\]',  '<b>\\1</b>'),
+        ('\[i\](.+?)\[/i\]',  '<i>\\1</i>'),
+        ('\[ul\](.+?)\[/ul\]',  '<ul>\\1<//ul>'),
+        ('\[li\](.+?)\[/li\]',  '<li>\\1<//i>'),
+        ('\[img\](.+?)\[/img\]', '<img src="\\1" />'),
+        ('\[url\](.+?)\[/url\]', '<a href="\\1">\\1</a>'),
+        ('\[url=(.+?)\](.+?)\[/url\]', '<a href="\\1">\\2</a>'),
+        ("\n", '<br />'),
+        ("\[br\]", '<br />'),
+    ]
+
+    for r in replacements:
+        p = re.compile(r[0])
+        text = p.sub(r[1], text)
+
+    return text
+
 def get_square_html(color, size):
     html = '<table class="blokje" border="0" cellspacing="0" cellpadding="0">'
     html += "\n"

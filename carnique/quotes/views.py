@@ -8,7 +8,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.core.urlresolvers import reverse
 
 from carnique.quotes.models import Quote, QuoteVote
-from carnique.main.views import cnq_render_to_response, convert_bb_to_html
+from carnique.main.views import cnq_render_to_response
+from carnique.utils import convert_bb_to_html
 
 from random import randint
 import datetime

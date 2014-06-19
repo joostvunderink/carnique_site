@@ -2,7 +2,8 @@ from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
 from carnique.profile.models import UserProfile
-from carnique.main.views import cnq_render_to_response, get_carnique_user, convert_bb_to_html
+from carnique.main.views import cnq_render_to_response, get_carnique_user
+from carnique.utils import convert_bb_to_html
 
 import datetime
 

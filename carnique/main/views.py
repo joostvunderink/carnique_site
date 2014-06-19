@@ -1,5 +1,4 @@
 from django.shortcuts import render_to_response
-from django.utils.html import escape
 from django.template import RequestContext
 
 from django.contrib.auth.models import User
@@ -7,8 +6,6 @@ from django.contrib.auth.decorators import login_required
 
 from carnique.profile.models import UserProfile
 from carnique.utils import get_square_color, get_square_html
-
-import re
 
 def square_test(request):
     s = ""
@@ -100,31 +97,4 @@ def get_carnique_user(username):
         pass
 
     return None
-
-def convert_bb_to_html(text):
-    """Converts a piece of text with bb-tags (like [b] and [img]) to
-    html. Any 'real' HTML tags that were present in the original text
-    are html-escaped."""
-
-    # First escape the text to get rid of all HTML tags.
-    text = escape(text)
-
-    # Now we can safely replace the bb-tags and be sure that those will be
-    # the only HTML tags in the text.
-    replacements = [
-        ('\[b\](.+?)\[/b\]',  '<b>\\1</b>'),
-        ('\[i\](.+?)\[/i\]',  '<i>\\1</i>'),
-        ('\[ul\](.+?)\[/ul\]',  '<ul>\\1<//ul>'),
-        ('\[li\](.+?)\[/li\]',  '<li>\\1<//i>'),
-        ('\[img\](.+?)\[/img\]', '<img src="\\1" />'),
-        ('\[url\](.+?)\[/url\]', '<a href="\\1">\\1</a>'),
-        ('\[url=(.+?)\](.+?)\[/url\]', '<a href="\\1">\\2</a>'),
-        ("\n", '<br />'),
-    ]
-
-    for r in replacements:
-        p = re.compile(r[0])
-        text = p.sub(r[1], text)
-
-    return text
 
