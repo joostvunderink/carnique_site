@@ -50,29 +50,6 @@ def todo(request):
         ],
     })
 
-@login_required
-def password_edit(request):
-    u = request.user
-
-    if not 'new_password' in request.POST:
-        return cnq_render_to_response('password_edit.html', request, {
-        })
-
-    np  = request.POST['new_password']
-    np2 = request.POST['new_password2']
-
-    if (np or np2) and (np != np2):
-        return cnq_render_to_response('password_edit.html', request, {
-            'body_top_error': 'The two password fields must contain the same password.',
-        })
-
-    u.set_password(np)
-    u.save()
-
-    return cnq_render_to_response('index.html', request, {
-        'body_top_message': 'Your password has been changed.',
-    })
-
 def cnq_render_to_response(page, request, args):
     return render_to_response(page, args, context_instance=RequestContext(request))
 
