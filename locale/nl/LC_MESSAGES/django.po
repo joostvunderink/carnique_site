@@ -7,12 +7,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-26 08:28+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Report-Msgid-Bugs-To: joost@carnique.nl\n"
+"POT-Creation-Date: 2014-06-28 16:28+0200\n"
+"PO-Revision-Date: 2014-06-28 HO:MI+ZONE\n"
+"Last-Translator: Joost Vunderink <joost@carnique.nl>\n"
+"Language-Team: carnique <language@carnique.nl>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -42,6 +42,37 @@ msgstr "Mijn profiel"
 msgid "Log out"
 msgstr "Uitloggen"
 
+#. Translators: Option in navigation bar
+#: carnique/templates/base.html:82
+#, fuzzy
+msgid "Log in"
+msgstr "Uitloggen"
+
+#. Translators: header of the "latest quotes" panel at the right
+#: carnique/templates/base.html:116
+msgid "Latest quote"
+msgstr "Nieuwste quote"
+
+#. Translators: button to vote 'like' on a single quote
+#: carnique/templates/block_quote.html:9
+msgid "like"
+msgstr "leuk"
+
+#. Translators: button to vote 'dislike' on a single quote
+#: carnique/templates/block_quote.html:13
+msgid "dislike"
+msgstr "stom"
+
+#: carnique/templates/block_quote.html:16
+msgid "You cannot vote on this quote at this time"
+msgstr "Je kunt nu niet stemmen op deze quote"
+
+#. Translators: shows the id of this quote
+#: carnique/templates/block_quote.html:23
+#, python-format
+msgid "Quote %(quote_id)s"
+msgstr "Quote %(quote_id)s"
+
 #: carnique/templates/registration/password_change_done.html:3
 #: carnique/templates/registration/password_change_form.html:4
 msgid "Documentation"
@@ -62,7 +93,7 @@ msgstr "Wachtwoordwijziging"
 #: carnique/templates/registration/password_change_done.html:11
 #: carnique/templates/registration/password_change_done.html:15
 msgid "Password change successful"
-msgstr "Wachtwoord gewijzigd"
+msgstr ""
 
 #: carnique/templates/registration/password_change_done.html:17
 msgid "Your password was changed."

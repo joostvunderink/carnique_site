@@ -1,17 +1,28 @@
+{% load i18n static %}
+
 <h3><a href="/quotes/{{ quote.id }}/">{{ quote.title }}</a></h3>
 Score <span id="quote_score_{{quote.id}}">{{ quote.score }}</span> -
 <span id="quote_vote_text_{{quote.id}}">
 {% if quote.can_vote %}
-<button class="quote_vote_up" value="{{ quote.id }}">leuk</button> -
-<button class="quote_vote_down" value="{{ quote.id }}">stom</button>
+<button class="quote_vote_up" value="{{ quote.id }}">
+    {% comment %}Translators: button to vote 'like' on a single quote{% endcomment %}
+    {% trans 'like' %}
+</button> -
+<button class="quote_vote_down" value="{{ quote.id }}">
+    {% comment %}Translators: button to vote 'dislike' on a single quote{% endcomment %}
+    {% trans 'dislike' %}
+    </button>
 {% else %}
-Je kunt nu niet stemmen op deze quote.
+{% trans 'You cannot vote on this quote at this time' %}.
 {% endif %}
 </span>
 </p>
 <pre>{{ quote.text }}</pre>
 <p style="text-align: right;">
-    Quote {{ quote.id }} - Toegevoegd door 
+    {% comment %}Translators: shows the id of this quote{% endcomment %}
+    {% blocktrans with quote_id=quote.id %}Quote {{ quote_id }}{% endblocktrans %}
+    -
+    Toegevoegd door 
     {% if quote.added_by.is_active and quote.added_by.get_profile.is_member %}
         <a href="/profile/{{ quote.added_by.username }}">{{ quote.added_by.username }}</a>
     {% else %}
