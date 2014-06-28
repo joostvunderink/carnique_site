@@ -20,3 +20,7 @@ TEMPLATE_DIRS = (
 STATICFILES_DIRS = (
     '/home/jvunder/czapka/src/carnique_site/carnique/static',
 )
+
+LOCALE_PATHS = (
+    '/home/jvunder/czapka/src/carnique_site/carnique/locale',
+)
