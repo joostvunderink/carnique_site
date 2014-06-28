@@ -1,0 +1,122 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-06-28 14:42+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Translators: Search button in navigation bar
+#: carnique/templates/base.html:55
+msgid "Search"
+msgstr ""
+
+#. Translators: Option in navigation bar
+#: carnique/templates/base.html:66
+#: carnique/templates/registration/password_change_done.html:3
+#: carnique/templates/registration/password_change_form.html:4
+msgid "Change password"
+msgstr ""
+
+#. Translators: Option in navigation bar
+#: carnique/templates/base.html:70
+msgid "My profile"
+msgstr ""
+
+#. Translators: Option in navigation bar
+#: carnique/templates/base.html:75
+#: carnique/templates/registration/password_change_done.html:3
+#: carnique/templates/registration/password_change_form.html:4
+msgid "Log out"
+msgstr ""
+
+#. Translators: Option in navigation bar
+#: carnique/templates/base.html:82
+msgid "Log in"
+msgstr ""
+
+#. Translators: header of the "latest quotes" panel at the right
+#: carnique/templates/base.html:116 carnique/templates/block_quote.html:23
+msgid "Latest quote"
+msgstr ""
+
+#. Translators: button to vote 'like' on a single quote
+#: carnique/templates/block_quote.html:9
+msgid "like"
+msgstr ""
+
+#. Translators: button to vote 'dislike' on a single quote
+#: carnique/templates/block_quote.html:13
+msgid "dislike"
+msgstr ""
+
+#: carnique/templates/block_quote.html:16
+msgid "You cannot vote on this quote at this time"
+msgstr ""
+
+#: carnique/templates/registration/password_change_done.html:3
+#: carnique/templates/registration/password_change_form.html:4
+msgid "Documentation"
+msgstr ""
+
+#: carnique/templates/registration/password_change_done.html:6
+#: carnique/templates/registration/password_change_form.html:7
+msgid "Home"
+msgstr ""
+
+#: carnique/templates/registration/password_change_done.html:7
+#: carnique/templates/registration/password_change_form.html:8
+#: carnique/templates/registration/password_change_form.html:12
+#: carnique/templates/registration/password_change_form.html:24
+msgid "Password change"
+msgstr ""
+
+#: carnique/templates/registration/password_change_done.html:11
+#: carnique/templates/registration/password_change_done.html:15
+msgid "Password change successful"
+msgstr ""
+
+#: carnique/templates/registration/password_change_done.html:17
+msgid "Your password was changed."
+msgstr ""
+
+#: carnique/templates/registration/password_change_form.html:20
+msgid "Please correct the error below."
+msgstr ""
+
+#: carnique/templates/registration/password_change_form.html:20
+msgid "Please correct the errors below."
+msgstr ""
+
+#: carnique/templates/registration/password_change_form.html:26
+msgid ""
+"Please enter your old password, for security's sake, and then enter your new "
+"password twice so we can verify you typed it in correctly."
+msgstr ""
+
+#: carnique/templates/registration/password_change_form.html:32
+msgid "Old password"
+msgstr ""
+
+#: carnique/templates/registration/password_change_form.html:37
+msgid "New password"
+msgstr ""
+
+#: carnique/templates/registration/password_change_form.html:42
+msgid "Password (again)"
+msgstr ""
+
+#: carnique/templates/registration/password_change_form.html:48
+msgid "Change my password"
+msgstr ""
