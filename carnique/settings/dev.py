@@ -22,5 +22,5 @@ STATICFILES_DIRS = (
 )
 
 LOCALE_PATHS = (
-    '/home/jvunder/czapka/src/carnique_site/carnique/locale',
+    '/home/jvunder/czapka/src/carnique_site/locale',
 )
