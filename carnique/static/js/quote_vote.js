@@ -1,7 +1,7 @@
 function quote_vote(e, direction) {
     quote_id = e.target.value;
     console.log("Voting " + direction + "; quote id = " + quote_id);
-    $.post("/quotes/vote/", {
+    $.post("/en/quotes/vote/", {
         "quote_id": quote_id,
         "direction": direction,
     })
@@ -10,7 +10,7 @@ function quote_vote(e, direction) {
             console.log("Gestemd!");
             quote_id = data.quote_id;
             $("span#quote_score_"+quote_id).html(data.new_score);
-            $("span#quote_vote_text_" + quote_id).html("Dank je voor je stem!");;
+            $("span#quote_vote_text_" + quote_id).html(data.message);
         }
         else {
             alert("Stemmen mislukt; graag contact opnemen met Garion: " + data.error)

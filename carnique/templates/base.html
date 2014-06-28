@@ -77,7 +77,10 @@
             </ul>
           </li>
           {% else %}
-          <li><a href="/accounts/login/?next=/">Log in</a></li><!-- TODO: make sure the 'next' url is correct here -->
+          <li><a href="/accounts/login/?next=/">
+            {% comment %}Translators: Option in navigation bar{% endcomment %}
+            {% trans 'Log in' %}
+          </a></li><!-- TODO: make sure the 'next' url is correct here -->
           {% endif %}
         </ul>
 
@@ -94,9 +97,24 @@
 
       <div class="col-sm-3 col-sm-offset-1 cnq-sidebar">
 
+        <form id="set_language" action="{% url 'set_language' %}" method="post">
+          <p style="text-align: right;">
+            <img id="lang_nl" src="{% static 'img/flags/netherlands.png' %}">
+            <img id="lang_en" src="{% static 'img/flags/united-kingdom.png' %}">
+            <img id="lang_pl" src="{% static 'img/flags/poland.png' %}">
+          </p>
+          {% csrf_token %}
+          <!-- <input name="next" type="hidden" value="{{ redirect_to }}" /> -->
+          <input name="next" type="hidden" value="/" />
+          <input id="language" name="language" type="hidden" value="" />
+        </form>
+
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title">Nieuwste quote</h3>
+            <h3 class="panel-title">
+              {% comment %}Translators: header of the "latest quotes" panel at the right{% endcomment %}
+              {% trans 'Latest quote' %}
+            </h3>
           </div>
           <div class="panel-body">
            <a href="{% url 'quotes.views.quote_view' latest_quote.id %}">{{ latest_quote.title }}</a>
@@ -131,16 +149,13 @@
           </div>
         </div>
 
-
       </div>
     </div>
   </div>
 
   <script src="{% static 'js/jquery.min.js' %}"></script>
   <script src="{% static 'js/bootstrap.min.js' %}"></script>
-
-  <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/"></script>
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script> -->
+  <script src="{% static 'js/tools.js' %}"></script>
 
 {% block footer %}{% endblock %}
 </body>

@@ -202,6 +202,7 @@ def quote_vote(request):
         'success': True,
         'new_score': q.score,
         'quote_id': q.id,
+        'message': 'Dank je voor je stem!',
     }
 
     return json_to_http(data)
