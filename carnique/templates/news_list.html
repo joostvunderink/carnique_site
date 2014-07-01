@@ -1,17 +1,27 @@
 {% extends "base.html" %}
+{% load i18n static %}
 
-{% block title %}Nieuws{% endblock %}
+{% block title %}
+{% comment %}Translators: Title of the 'news' page{% endcomment %}
+{% trans 'News' %}
+{% endblock %}
 
 {% block contents %}
 
 {% if can_add_news %}
-<p><a href="/news/add/">Voeg nieuws toe</a></p>
+<p><a href="/news/add/">
+{% comment %}Translators: Link to add news on the 'news' page{% endcomment %}
+{% trans 'Add news' %}
+</a></p>
 {% endif %}
 
 {% for n in news_list %}
 <h3>{{ n.title }}</h3>
 <p>{{ n.bbed_text|safe }}<br>
-<em>Door {{ n.added_by.username }} op {{ n.added_on|date:"Y-m-d" }}</em><br>
+<em>
+  {% comment %}Translators: subscript of a news item{% endcomment %}
+  {% blocktrans with username=n.added_by.username date=n.added_on|date:"Y-m-d" %}By {{ username }} at {{ date }}{% endblocktrans %}
+</em>
 </p>
 {% endfor %}
 

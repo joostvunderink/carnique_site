@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: joost@carnique.nl\n"
-"POT-Creation-Date: 2014-06-28 16:28+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-06-28 18:13+0200\n"
 "PO-Revision-Date: 2014-06-28 HO:MI+ZONE\n"
 "Last-Translator: Joost Vunderink <joost@carnique.nl>\n"
 "Language-Team: carnique <language@carnique.nl>\n"
@@ -18,38 +18,64 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
+#. Translators: Option in 'quote' menu in navigation bar
+#: carnique/templates/base.html:40
+msgid "All quotes"
+msgstr "Alle quotes"
+
+#. Translators: Option in 'quote' menu in navigation bar
+#: carnique/templates/base.html:44
+msgid "Top quotes"
+msgstr "Beste quotes"
+
+#. Translators: Option in 'quote' menu in navigation bar
+#: carnique/templates/base.html:48
+msgid "Random quote"
+msgstr "Willekeurige quote"
+
+#. Translators: Option in 'quote' menu in navigation bar
+#: carnique/templates/base.html:53
+msgid "Add quote"
+msgstr "Voeg quote toe"
+
 #. Translators: Search button in navigation bar
-#: carnique/templates/base.html:55
+#: carnique/templates/base.html:67
 msgid "Search"
 msgstr "Zoek"
 
+#. Translators: Right menu in navigation bar
+#: carnique/templates/base.html:76
+#, python-format
+msgid "Logged in as %(username)s"
+msgstr "Ingelogd als %(username)s"
+
 #. Translators: Option in navigation bar
-#: carnique/templates/base.html:66
+#: carnique/templates/base.html:81
 #: carnique/templates/registration/password_change_done.html:3
 #: carnique/templates/registration/password_change_form.html:4
 msgid "Change password"
 msgstr "Wijzig wachtwoord"
 
 #. Translators: Option in navigation bar
-#: carnique/templates/base.html:70
+#: carnique/templates/base.html:85
 msgid "My profile"
 msgstr "Mijn profiel"
 
 #. Translators: Option in navigation bar
-#: carnique/templates/base.html:75
+#: carnique/templates/base.html:90
 #: carnique/templates/registration/password_change_done.html:3
 #: carnique/templates/registration/password_change_form.html:4
 msgid "Log out"
 msgstr "Uitloggen"
 
 #. Translators: Option in navigation bar
-#: carnique/templates/base.html:82
+#: carnique/templates/base.html:97
 #, fuzzy
 msgid "Log in"
 msgstr "Uitloggen"
 
 #. Translators: header of the "latest quotes" panel at the right
-#: carnique/templates/base.html:116
+#: carnique/templates/base.html:131
 msgid "Latest quote"
 msgstr "Nieuwste quote"
 

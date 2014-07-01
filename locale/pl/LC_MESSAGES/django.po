@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-28 16:27+0200\n"
+"POT-Creation-Date: 2014-06-28 18:14+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,39 +19,65 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
+#. Translators: Option in 'quote' menu in navigation bar
+#: carnique/templates/base.html:40
+msgid "All quotes"
+msgstr ""
+
+#. Translators: Option in 'quote' menu in navigation bar
+#: carnique/templates/base.html:44
+msgid "Top quotes"
+msgstr ""
+
+#. Translators: Option in 'quote' menu in navigation bar
+#: carnique/templates/base.html:48
+msgid "Random quote"
+msgstr ""
+
+#. Translators: Option in 'quote' menu in navigation bar
+#: carnique/templates/base.html:53
+msgid "Add quote"
+msgstr ""
+
 #. Translators: Search button in navigation bar
-#: carnique/templates/base.html:55
+#: carnique/templates/base.html:67
 msgid "Search"
 msgstr ""
 
+#. Translators: Right menu in navigation bar
+#: carnique/templates/base.html:76
+#, python-format
+msgid "Logged in as %(username)s"
+msgstr "Zalogowany jako %(username)s"
+
 #. Translators: Option in navigation bar
-#: carnique/templates/base.html:66
+#: carnique/templates/base.html:81
 #: carnique/templates/registration/password_change_done.html:3
 #: carnique/templates/registration/password_change_form.html:4
 msgid "Change password"
 msgstr ""
 
 #. Translators: Option in navigation bar
-#: carnique/templates/base.html:70
+#: carnique/templates/base.html:85
 msgid "My profile"
 msgstr ""
 
 #. Translators: Option in navigation bar
-#: carnique/templates/base.html:75
+#: carnique/templates/base.html:90
 #: carnique/templates/registration/password_change_done.html:3
 #: carnique/templates/registration/password_change_form.html:4
 msgid "Log out"
 msgstr ""
 
 #. Translators: Option in navigation bar
-#: carnique/templates/base.html:82
+#: carnique/templates/base.html:97
 msgid "Log in"
 msgstr ""
 
 #. Translators: header of the "latest quotes" panel at the right
-#: carnique/templates/base.html:116
+#: carnique/templates/base.html:131
 msgid "Latest quote"
-msgstr ""
+msgstr "Najnowszy cytat"
 
 #. Translators: button to vote 'like' on a single quote
 #: carnique/templates/block_quote.html:9
@@ -70,10 +96,7 @@ msgstr ""
 #. Translators: shows the id of this quote
 #: carnique/templates/block_quote.html:23
 #, python-format
-msgid ""
-"\n"
-"    Quote %(quote_id)s\n"
-"    "
+msgid "Quote %(quote_id)s"
 msgstr ""
 
 #: carnique/templates/registration/password_change_done.html:3

@@ -26,20 +26,41 @@
           <li class="navbar dropdown">
             <a href="/news/" class="navbar" data-toggle="dropdown">Info</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/news/">Nieuws</a></li>
-              <li><a class="dropdown-item" href="/whatiscarnique/">Wat is Carnique?</a></li>
-              <li><a class="dropdown-item" href="/guidelines/">Richtlijnen</a></li>
+              <li><a class="dropdown-item" href="/news/">
+                {% comment %}Translators: Option in 'info' menu in navigation bar{% endcomment %}
+                {% trans 'News' %}
+              </a></li>
+              <li><a class="dropdown-item" href="/whatiscarnique/">
+                {% comment %}Translators: Option in 'info' menu in navigation bar{% endcomment %}
+                {% trans 'What is Carnique?' %}
+              </a></li>
+              <li><a class="dropdown-item" href="/guidelines/">
+                {% comment %}Translators: Option in 'info' menu in navigation bar{% endcomment %}
+                {% trans 'Guidelines' %}
+              </a></li>
             </ul>
           </li>
 
           <li class="navbar dropdown">
             <a href="/quotes/" class="navbar" data-toggle="dropdown">Quotes</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/quotes/">Alle quotes</a></li>
-              <li><a class="dropdown-item" href="/quotes/?o=score">Beste quotes</a></li>
-              <li><a class="dropdown-item" href="/quotes/random/">Willekeurige quote</a></li>
+              <li><a class="dropdown-item" href="/quotes/">
+                {% comment %}Translators: Option in 'quote' menu in navigation bar{% endcomment %}
+                {% trans 'All quotes' %}
+              </a></li>
+              <li><a class="dropdown-item" href="/quotes/?o=score">
+                {% comment %}Translators: Option in 'quote' menu in navigation bar{% endcomment %}
+                {% trans 'Top quotes' %}
+              </a></li>
+              <li><a class="dropdown-item" href="/quotes/random/">
+                {% comment %}Translators: Option in 'quote' menu in navigation bar{% endcomment %}
+                {% trans 'Random quote' %}
+              </a></li>
               <li class="divider"></li>
-              <li><a href="/quotes/add/" class="dropdown-item">Voeg quote toe</a></li>
+              <li><a href="/quotes/add/" class="dropdown-item">
+                {% comment %}Translators: Option in 'quote' menu in navigation bar{% endcomment %}
+                {% trans 'Add quote' %}
+              </a></li>
             </ul>
           </li>
 
@@ -60,7 +81,10 @@
         <ul class="nav navbar-nav navbar-right">
           {% if user.is_authenticated %}
           <li class="navbar dropdown">
-            <a href="/accounts/profile/" class="dropdown-item" data-toggle="dropdown">Ingelogd als {{ user.username }}</a>
+            <a href="/accounts/profile/" class="dropdown-item" data-toggle="dropdown">
+              {% comment %}Translators: Right menu in navigation bar{% endcomment %}
+              {% blocktrans with username=user.username %}Logged in as {{ username }}{% endblocktrans %}
+            </a>
             <ul class="dropdown-menu">
               <li><a href="/accounts/password_change/" class="dropdown-item">
                 {% comment %}Translators: Option in navigation bar{% endcomment %}
