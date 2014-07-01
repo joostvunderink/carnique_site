@@ -45,7 +45,8 @@
 
         </ul>
 
-        <form class="navbar-form navbar-left" role="search" action="/quotes/search/" method="POST">
+        {% get_current_language as LANGUAGE_CODE %}
+        <form class="navbar-form navbar-left" role="search" action="/{{ LANGUAGE_CODE }}/quotes/search/" method="POST">
           {% csrf_token %}
           <div class="form-group">
             <input id="quote_search" name="quote_search" type="text" class="form-control" placeholder="Quote tekst">
